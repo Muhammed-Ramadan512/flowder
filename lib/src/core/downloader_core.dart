@@ -8,13 +8,13 @@ import 'package:flowder/src/utils/downloader_utils.dart';
 /// also required to actually `start`,`stop`,`pause`,`cancel` a download.
 class DownloaderCore {
   /// StreamSubscription used to link with the download streaming.
-  late StreamSubscription _inner;
+  StreamSubscription _inner;
 
   /// Inner utils
-  late final DownloaderUtils _options;
+  final DownloaderUtils _options;
 
   /// Inner url
-  late final String _url;
+  final String _url;
 
   /// Check if the download was cancelled.
   bool isCancelled = false;

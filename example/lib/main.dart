@@ -16,9 +16,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late DownloaderUtils options;
-  late DownloaderCore core;
-  late final String path;
+  DownloaderUtils options;
+  DownloaderCore core;
+  String path;
 
   @override
   void initState() {
@@ -28,11 +28,11 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> initPlatformState() async {
     _setPath();
-    if (!mounted) return;
+    if (mounted) return;
   }
 
   void _setPath() async {
-    path = (await getExternalStorageDirectory())!.path;
+    path = (await getExternalStorageDirectory()).path;
   }
 
   @override

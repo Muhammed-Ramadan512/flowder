@@ -9,7 +9,7 @@ import 'package:file_downloader/presentation/screens/main_screen.dart' as _i3;
 import 'package:flutter/material.dart' as _i2;
 
 class AppRouter extends _i1.RootStackRouter {
-  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+  AppRouter([_i2.GlobalKey<_i2.NavigatorState> navigatorKey])
       : super(navigatorKey);
 
   @override

@@ -19,18 +19,18 @@ final downloaderProvider =
 
 @injectable
 class DownloaderNotifier extends StateNotifier<DownloaderState> {
-  late final String path;
-  late final BuildContext context;
-  DownloaderUtils? options;
-  DownloaderCore? downloaderCore;
+  String path;
+  BuildContext context;
+  DownloaderUtils options;
+  DownloaderCore downloaderCore;
 
   DownloaderNotifier() : super(DownloaderState.initial()) {
-    context = router.navigatorKey.currentContext!;
+    context = router.navigatorKey.currentContext;
     _setPath();
   }
 
   void _setPath() async {
-    path = (await getExternalStorageDirectory())!.path;
+    path = (await getExternalStorageDirectory()).path;
   }
 
   Future<void> initDownload(
@@ -52,7 +52,7 @@ class DownloaderNotifier extends StateNotifier<DownloaderState> {
         state = DownloaderState.loading();
       },
     );
-    downloaderCore ??= await Flowder.download(url, options!);
+    downloaderCore = await Flowder.download(url, options);
     CustomToast.show(
         title: S.of(context).downloaderTitle,
         body: S.of(context).downloadStarted,
@@ -61,8 +61,8 @@ class DownloaderNotifier extends StateNotifier<DownloaderState> {
   }
 
   Future<void> pauseDownload() async {
-    if (!isDownloading) return;
-    await downloaderCore!.pause();
+    if (isDownloading) return;
+    await downloaderCore.pause();
     state = DownloaderState.paused();
     CustomToast.show(
         title: S.of(context).downloaderTitle,
@@ -72,7 +72,7 @@ class DownloaderNotifier extends StateNotifier<DownloaderState> {
   }
 
   Future<void> continueDownload() async {
-    await downloaderCore!.resume();
+    await downloaderCore.resume();
     state = DownloaderState.loading();
     CustomToast.show(
         title: S.of(context).downloaderTitle,

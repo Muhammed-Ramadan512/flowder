@@ -16,8 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$InternetConnectionStateTearOff {
   const _$InternetConnectionStateTearOff();
 
-  _InternetConnectionState call(
-      {required bool hasInternet, required bool isLoading}) {
+  _InternetConnectionState call({bool hasInternet, bool isLoading}) {
     return _InternetConnectionState(
       hasInternet: hasInternet,
       isLoading: isLoading,
@@ -57,8 +56,8 @@ class _$InternetConnectionStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? hasInternet = freezed,
-    Object? isLoading = freezed,
+    Object hasInternet = freezed,
+    Object isLoading = freezed,
   }) {
     return _then(_value.copyWith(
       hasInternet: hasInternet == freezed
@@ -97,8 +96,8 @@ class __$InternetConnectionStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? hasInternet = freezed,
-    Object? isLoading = freezed,
+    Object hasInternet = freezed,
+    Object isLoading = freezed,
   }) {
     return _then(_InternetConnectionState(
       hasInternet: hasInternet == freezed
@@ -116,8 +115,7 @@ class __$InternetConnectionStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InternetConnectionState implements _InternetConnectionState {
-  const _$_InternetConnectionState(
-      {required this.hasInternet, required this.isLoading});
+  const _$_InternetConnectionState({this.hasInternet, this.isLoading});
 
   @override
   final bool hasInternet;
@@ -155,9 +153,8 @@ class _$_InternetConnectionState implements _InternetConnectionState {
 }
 
 abstract class _InternetConnectionState implements InternetConnectionState {
-  const factory _InternetConnectionState(
-      {required bool hasInternet,
-      required bool isLoading}) = _$_InternetConnectionState;
+  const factory _InternetConnectionState({bool hasInternet, bool isLoading}) =
+      _$_InternetConnectionState;
 
   @override
   bool get hasInternet => throw _privateConstructorUsedError;

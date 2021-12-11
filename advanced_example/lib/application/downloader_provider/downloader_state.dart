@@ -5,9 +5,9 @@ part 'downloader_state.freezed.dart';
 @freezed
 class DownloaderState with _$DownloaderState {
   const factory DownloaderState({
-    required bool isComplete,
-    required bool isLoading,
-    required bool isPaused,
+    bool isComplete,
+    bool isLoading,
+    bool isPaused,
   }) = _DownloaderState;
 
   factory DownloaderState.initial() => DownloaderState(

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class CustomToast {
   static Function show({
-    required String title,
-    required String body,
-    required Icon icon,
-    Color? titleFontColor,
-    VoidCallback? onClose,
-    Duration? duration,
+    String title,
+    String body,
+    Icon icon,
+    Color titleFontColor,
+    VoidCallback onClose,
+    Duration duration,
   }) {
     return BotToast.showCustomNotification(
       toastBuilder: (_) => Container(

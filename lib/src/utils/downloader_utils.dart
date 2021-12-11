@@ -11,7 +11,7 @@ class DownloaderUtils {
   final ProgressInterface progress;
 
   /// Dio Client for HTTP Request
-  Dio? client;
+  Dio client;
 
   /// Setup a location to store the downloaded file
   File file;
@@ -29,11 +29,11 @@ class DownloaderUtils {
   final ProgressCallback progressCallback;
 
   DownloaderUtils({
-    required this.progress,
+    this.progress,
     this.client,
-    required this.file,
+    this.file,
     this.deleteOnCancel = false,
-    required this.onDone,
-    required this.progressCallback,
+    this.onDone,
+    this.progressCallback,
   });
 }

@@ -40,7 +40,7 @@ class Flowder {
     var lastProgress = await options.progress.getProgress(url);
     final client = options.client ?? Dio(BaseOptions(sendTimeout: 60));
     // ignore: cancel_subscriptions
-    StreamSubscription? subscription;
+    StreamSubscription subscription;
     try {
       isDownloading = true;
       final file = await options.file.create(recursive: true);
@@ -51,12 +51,12 @@ class Flowder {
             headers: {HttpHeaders.rangeHeader: 'bytes=$lastProgress-'}),
       );
       final _total = int.tryParse(
-              response.headers.value(HttpHeaders.contentLengthHeader)!) ??
+              response.headers.value(HttpHeaders.contentLengthHeader)) ??
           0;
       final sink = await file.open(mode: FileMode.writeOnlyAppend);
       subscription = response.data.stream.listen(
         (Uint8List data) async {
-          subscription!.pause();
+          subscription.pause();
           await sink.writeFrom(data);
           final currentProgress = lastProgress + data.length;
           await options.progress.setProgress(url, currentProgress.toInt());
@@ -67,11 +67,11 @@ class Flowder {
         onDone: () async {
           options.onDone.call();
           await sink.close();
-          if (options.client != null) client.close();
+          if (options.client = null) client.close();
         },
-        onError: (error) async => subscription!.pause(),
+        onError: (error) async => subscription.pause(),
       );
-      return subscription!;
+      return subscription;
     } catch (e) {
       rethrow;
     }

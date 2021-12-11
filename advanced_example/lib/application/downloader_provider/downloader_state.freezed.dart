@@ -16,10 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$DownloaderStateTearOff {
   const _$DownloaderStateTearOff();
 
-  _DownloaderState call(
-      {required bool isComplete,
-      required bool isLoading,
-      required bool isPaused}) {
+  _DownloaderState call({bool isComplete, bool isLoading, bool isPaused}) {
     return _DownloaderState(
       isComplete: isComplete,
       isLoading: isLoading,
@@ -61,9 +58,9 @@ class _$DownloaderStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isComplete = freezed,
-    Object? isLoading = freezed,
-    Object? isPaused = freezed,
+    Object isComplete = freezed,
+    Object isLoading = freezed,
+    Object isPaused = freezed,
   }) {
     return _then(_value.copyWith(
       isComplete: isComplete == freezed
@@ -105,9 +102,9 @@ class __$DownloaderStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isComplete = freezed,
-    Object? isLoading = freezed,
-    Object? isPaused = freezed,
+    Object isComplete = freezed,
+    Object isLoading = freezed,
+    Object isPaused = freezed,
   }) {
     return _then(_DownloaderState(
       isComplete: isComplete == freezed
@@ -129,10 +126,7 @@ class __$DownloaderStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DownloaderState implements _DownloaderState {
-  const _$_DownloaderState(
-      {required this.isComplete,
-      required this.isLoading,
-      required this.isPaused});
+  const _$_DownloaderState({this.isComplete, this.isLoading, this.isPaused});
 
   @override
   final bool isComplete;
@@ -176,9 +170,7 @@ class _$_DownloaderState implements _DownloaderState {
 
 abstract class _DownloaderState implements DownloaderState {
   const factory _DownloaderState(
-      {required bool isComplete,
-      required bool isLoading,
-      required bool isPaused}) = _$_DownloaderState;
+      {bool isComplete, bool isLoading, bool isPaused}) = _$_DownloaderState;
 
   @override
   bool get isComplete => throw _privateConstructorUsedError;
